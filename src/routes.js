@@ -3,7 +3,7 @@ import VueRouter from 'vue-router'
 import HomeComponent from './components/HomeComponent.vue'
 import CarrinhoComponent from './components/carrinho/CarrinhoComponent.vue'
 // import ContaComponent from './components/conta/ContaComponent.vue'
-// import LoginComponent from './components/login/LoginComponent.vue'
+import LoginComponent from './components/login/LoginComponent.vue'
 // import RegisterComponent from './components/register/RegisterComponent.vue'
 // import ResetPasswordComponent from './components/reset/ResetPasswordComponent.vue'
 
@@ -25,11 +25,11 @@ export const routes = [
   //   name: 'conta-component',
   //   component: ContaComponent
   // },
-  // {
-  //   path: '/login',
-  //   name: 'login-component',
-  //   component: LoginComponent
-  // },
+  {
+    path: '/login',
+    name: 'login-component',
+    component: LoginComponent
+  },
   // {
   //   path: '/register',
   //   name: 'register-component',

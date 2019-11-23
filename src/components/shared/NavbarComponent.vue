@@ -1,20 +1,13 @@
 <template>
-  <nav class="navbar">
-    <div class="container">
-      <ul class="ml-auto navbar-nav">
-        <li class="nav-item">
-          <router-link class="nav-link" to="/conta">
-            <i class="fas fa-user" aria-hidden="true"></i>
-            <span> Conta</span>
-          </router-link>
-        </li>
-        <li class="nav-item" @click="verCarrinho = true">
-          <p class="nav-link text-light">
-            <i class="fas fa-shopping-cart" aria-hidden="true"></i>
-            {{ items.length }} <span>Itens</span>
-          </p>
-        </li>
-      </ul>
+  <nav class="navbar navbar-expand">
+    <div class="container py-2">
+      <p class="nav-item text-light ml-auto mb-0" @click="verCarrinho = true">
+        <i class="fas fa-shopping-cart" aria-hidden="true"></i>
+        {{ items.length }} <span>Itens</span>
+      </p>
+      <b-dropdown right :text="usuario.nome" class="m-2">
+        <b-dropdown-item @click="logout()">Sair</b-dropdown-item>
+      </b-dropdown>
       <modal-component v-if="verCarrinho" @close="verCarrinho = false">
         <h3 slot="header">Carrinho</h3>
         <div slot="body" class="text-center">
@@ -57,8 +50,27 @@
     },
     data(){
       return{
-        verCarrinho: false
+        verCarrinho: false, usuario: null
       }
+    },
+    methods:{
+      verificarUsuario(){
+        let usuarioAux = sessionStorage.getItem('usuario') //pega a info de "usuario"
+        if (usuarioAux){
+          this.usuario = JSON.parse(usuarioAux) //this.usuario recebendo as infos de usuario em forma de objeto
+        }
+        else{
+          this.$router.push('/login')
+        }
+      },
+      logout(){
+        sessionStorage.clear()
+        this.usuario = false
+        this.$router.push('/login')
+      }
+    },
+    created(){
+      this.verificarUsuario()
     }
   }
 </script>
@@ -69,25 +81,31 @@
     background-color: #213345;
   	box-shadow: none;
     padding: 0!important;
-    .navbar-nav{
-      flex-direction: row;
+    .dropdown{
+      .dropdown-toggle{
+        background-color: transparent;
+        border: 0;
+        text-transform: uppercase;
+        font-size: 0.9em;
+        font-weight: bold;
+      }
+      .dropdown-menu{
+        font-size: 0.9rem;
+        .dropdown-item {
+          color: #213345;
+          background-color: transparent;
+          padding: 0.4rem 0.6rem 0.4rem 0.6rem;
+          &:hover{
+            background-color: #e9ecef;
+          }
+        }
+      }
     }
     .nav-item{
       margin-right: 1.5vw;
-      font-size: 0.8em;
+      font-size: 0.9em;
       font-weight: bold;
       text-transform: uppercase;
-      a, .nav-link{
-        color: #ffffff;
-        cursor: pointer;
-        margin-bottom: 0;
-        &:hover{
-          // padding: 0;
-          padding-bottom: 0;
-          color: #ffffff;
-          border-bottom: 2px solid #EE4C5B;
-        }
-      }
     }
     .carrinho-modal{
       img{

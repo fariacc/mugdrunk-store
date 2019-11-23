@@ -13,10 +13,10 @@
           </p>
         </h5>
         <hr />
-        <div class="row">
+        <div class="col-md-12 col-lg-12">
           <div class="u-pull-right">
             <h5>Subtotal: <span>{{ subtotal }}</span></h5>
-            <button>Finalizar compra</button>
+            <button v-if="subtotal != 0">Finalizar compra</button>
           </div>
         </div>
       </div>

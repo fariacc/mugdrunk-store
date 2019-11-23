@@ -9,11 +9,13 @@ import 'bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Vuetify from 'vuetify'
 import 'vuetify/dist/vuetify.min.css'
+import FBSignInButton from 'vue-facebook-signin-button'
 
 Vue.use(VueResource)
 Vue.use(VueRouter)
 Vue.use(BootstrapVue)
 Vue.use(Vuetify)
+Vue.use(FBSignInButton)
 
 const router = new VueRouter({
   routes: routes,
