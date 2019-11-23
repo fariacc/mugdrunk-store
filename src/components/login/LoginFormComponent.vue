@@ -1,7 +1,7 @@
 <template>
   <form class="form-row mb-0">
     <input-component classediv="form-group col-md-12 col-lg-12 mb-1" labelinput="username" label="Usuário" classeinput="form-control"
-    tipoinput="text" v-model="usuario.username"></input-component>
+    tipoinput="text" v-model="usuario.nome"></input-component>
     <input-component classediv="form-group col-md-12 col-lg-12 mb-1" labelinput="senha" label="Senha" classeinput="form-control"
     tipoinput="password" v-model="usuario.senha"></input-component>
     <p v-show="alerta != ''" class="alert alert-danger" role="alert"{{ alerta }}</p>
@@ -9,7 +9,7 @@
       <router-link to="/reset">Esqueci minha senha</router-link>
     </div>
     <div class="form-group col-md-12 col-lg-12 text-center">
-      <button @click.native="login()" type="submit" class="btn btn-default">Entrar</button>
+      <button @click.prevent="login($event)" class="btn btn-default">Entrar</button>
     </div>
     <div class="form-group col-md-12 col-lg-12 text-center">
       <p>Não possui conta?<router-link to="/register" class="link"><strong> Cadastre-se</strong></router-link></p>
@@ -31,13 +31,13 @@
     },
     data () {
       return {
-        usuario: { username: null, senha: null },
+        usuario: { nome: null, senha: null },
         alerta: '', showModal: null, message: null
       }
     },
     methods: {
-      login () {
-        if (this.usuario.username.length > 0 && this.usuario.senha.length > 0) {
+      login (event) {
+        if (this.usuario.nome != null || this.usuario.senha != null) {
           sessionStorage.setItem('usuario', JSON.stringify(this.usuario))
           this.$router.push('/home') // redireciona o usuário pra página principal
         }
@@ -46,7 +46,8 @@
           this.message = 'Preencha todos os campos corretamente'
           this.icone = 'text-danger far fa-lg fa-times-circle'
         }
-        event.preventDefault()
+        // event.preventDefault()
+        // alert('oi')
       }
     }
   }
