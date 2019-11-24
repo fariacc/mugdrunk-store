@@ -1,17 +1,13 @@
 <template>
-  <div :class="classediv">
-    <label :for="labelinput" class="control-label text-left">{{ label }}</label>
-    <input @input="$emit('input', $event.target.value)" :class="classeinput" :value="value" :type="tipoinput"
-    :v-model="vmodel" :name="name" :id="idinput"/>
-  </div>
+  <input @input="$emit('input', $event.target.value)" :class="classeinput" :value="value" :type="tipoinput"
+  :v-model="vmodel" :name="name" :id="idinput"/>
 </template>
 
 <script>
   export default {
     name: 'input-component',
     props: {
-      value: null, classediv: String, labelinput: String, label: String, classeinput: String,
-      tipoinput: String, vmodel: String, name: String, idinput: String
+      value: null, classeinput: String, tipoinput: String, vmodel: String, name: String, idinput: String
     }
   }
 </script>

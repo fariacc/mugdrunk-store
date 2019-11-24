@@ -21,6 +21,11 @@
       return{
         items: []
       }
+    },
+    created(){
+      if (this.$route.params.items != undefined) {
+        this.items = this.$route.params.items//recebendo a lista de items para o carrinho
+      }
     }
   }
 </script>

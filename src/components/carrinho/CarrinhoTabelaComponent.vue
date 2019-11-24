@@ -1,38 +1,41 @@
 <template>
-  <div class="container carrinho-tabela-component">
-    <div class="row">
-      <div class="checkout mx-auto text-center">
-        <h3 class="text-center">Seu carrinho</h3>
-        <h5 class="text-center" v-for="item in items">
-          <p>
-            <strong>Produto: </strong>{{ item.nome }} |
-            <strong>Preço: R$ </strong>R$ {{ item.preco }} |
-            <strong>
-              <i class="fa fa-trash" @click="removerCarrinho(item)"></i>
-            </strong>
-          </p>
-        </h5>
-        <hr />
-        <div class="col-md-12 col-lg-12">
-          <div class="u-pull-right">
-            <h5>Subtotal: <span>{{ subtotal }}</span></h5>
-            <button v-if="subtotal != 0">Finalizar compra</button>
-          </div>
-        </div>
-      </div>
+  <div class="col-md-12 col-lg-6 carrinho-tabela-component">
+    <div class="checkout">
+      <h4 class="text-center mb-5">Seu carrinho</h4>
+      <!-- <h6 class="text-center" v-for="item in items"> -->
+        <p class="text-center" v-for="item in items">
+          <strong>Produto: </strong>{{ item.nome }} |
+          <strong>Preço: R$ </strong>R$ {{ item.preco }} |
+          <strong>
+            <i class="fa fa-trash" @click="removerCarrinho(item)"></i>
+          </strong>
+        </p>
+      <!-- </h6> -->
     </div>
+    <hr v-if="subtotal != 0"/>
+    <div class="form-inline mb-1" v-if="subtotal != 0">
+      <strong>Cupom de desconto: </strong>
+      <input-component classeinput="form-control ml-2" tipoinput="text" v-model="cupom"></input-component>
+      <button type="button" name="cupom" class="btn btn-primary ml-2">Adicionar</button>
+    </div>
+    <hr/>
+    <p class="text-center"><strong>Subtotal: </strong> R$ {{ subtotal }}</p>
   </div>
 </template>
 
 <script>
+  import InputComponent from '../shared/InputComponent.vue'
   export default {
     name: 'carrinho-tabela-component',
+    components: {
+      InputComponent
+    },
     props: {
       items: Array
     },
     data(){
       return{
-        verCarrinho: false, verificado: false
+        verCarrinho: false, verificado: false, cupom: null
       }
     },
     methods: {
@@ -43,15 +46,13 @@
     },
     computed: {
       subtotal() {//calcula o subtotal da compra
-        var subtotal = 0;
+        var subtotal = 0
         for (var i = 0; i < this.items.length; i++) {
           subtotal += this.items[i].preco;
         }
-        return subtotal;
+        this.$emit('mandarSubtotal', subtotal)
+        return subtotal
       }
-    },
-    mounted(){
-      console.log(this.items);
     }
   }
 </script>

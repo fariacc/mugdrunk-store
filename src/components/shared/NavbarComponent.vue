@@ -1,11 +1,11 @@
 <template>
   <nav class="navbar navbar-expand">
-    <div class="container py-2">
-      <p class="nav-item text-light ml-auto mb-0" @click="verCarrinho = true">
+    <div class="container">
+      <p class="nav-item text-light ml-auto mb-0 py-2" @click="verCarrinho = true">
         <i class="fas fa-shopping-cart" aria-hidden="true"></i>
         {{ items.length }} <span>Itens</span>
       </p>
-      <b-dropdown right :text="usuario.nome" class="m-2">
+      <b-dropdown right v-if="usuario != null" :text="usuario.nome" class="mx-2">
         <b-dropdown-item @click="logout()">Sair</b-dropdown-item>
       </b-dropdown>
       <modal-component v-if="verCarrinho" @close="verCarrinho = false">
@@ -59,9 +59,9 @@
         if (usuarioAux){
           this.usuario = JSON.parse(usuarioAux) //this.usuario recebendo as infos de usuario em forma de objeto
         }
-        else{
-          this.$router.push('/login')
-        }
+        // else{
+        //   this.$router.push('/login')
+        // }
       },
       logout(){
         sessionStorage.clear()

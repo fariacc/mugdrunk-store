@@ -1,15 +1,21 @@
 <template>
   <form class="form-row mb-0">
-    <input-component classediv="form-group col-md-12 col-lg-12 mb-1" labelinput="username" label="Usuário" classeinput="form-control"
-    tipoinput="text" v-model="usuario.nome"></input-component>
-    <input-component classediv="form-group col-md-12 col-lg-12 mb-1" labelinput="senha" label="Senha" classeinput="form-control"
-    tipoinput="password" v-model="usuario.senha"></input-component>
+    <div class="form-group col-md-12 col-lg-12 mb-1">
+      <label class="control-label text-left" for="username">Usuário</label>
+      <input-component classeinput="form-control"
+      tipoinput="text" v-model="usuario.nome"></input-component>
+    </div>
+    <div class="form-group col-md-12 col-lg-12 mb-1">
+      <label class="control-label text-left" for="senha">Senha</label>
+      <input-component labelinput="senha" label="Senha" classeinput="form-control"
+      tipoinput="password" v-model="usuario.senha"></input-component>
+    </div>
     <p v-show="alerta != ''" class="alert alert-danger" role="alert"{{ alerta }}</p>
     <div class="form-group col-md-12 col-lg-12 reset">
       <router-link to="/reset">Esqueci minha senha</router-link>
     </div>
     <div class="form-group col-md-12 col-lg-12 text-center">
-      <button @click.prevent="login($event)" class="btn btn-default">Entrar</button>
+      <button @click.prevent="login($event)" class="btn btn-primary">Entrar</button>
     </div>
     <div class="form-group col-md-12 col-lg-12 text-center">
       <p>Não possui conta?<router-link to="/register" class="link"><strong> Cadastre-se</strong></router-link></p>

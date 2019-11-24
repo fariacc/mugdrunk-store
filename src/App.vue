@@ -20,8 +20,13 @@
     transition: opacity .5s;
   }
   .btn{
-    .link{
+    height: fit-content;
+    a, .link{
       color: #ffffff;
+      &:hover{
+        color: #ffffff;
+        text-decoration: none;
+      }
     }
   }
 </style>
