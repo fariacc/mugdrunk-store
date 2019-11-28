@@ -13,7 +13,7 @@
           <button class="btn btn-primary mx-2">
             <router-link :to="{ name: 'home-component', params: { items } }">Voltar ao início</router-link>
           </button>
-          <button class="btn btn-primary mx-2" v-if="subtotal != 0">Finalizar compra</button>
+          <button class="btn btn-primary mx-2" v-if="subtotal != 0" @click="finalizarCompra">Finalizar compra</button>
         </div>
       </div>
     </div>
@@ -40,6 +40,15 @@
       },
       calcularTotal(valorFrete){
         this.total = this.subtotal + valorFrete
+      },
+      finalizarCompra(){
+        let usuarioAux = sessionStorage.getItem('usuario') //pega a info de "usuario"
+        if (usuarioAux){//se usuario logado vai pra página de pagamento
+          this.$router.push('/pagamento')
+        }
+        else{//se usuario não tiver logado vai pra página de login
+          this.$router.push('/login')
+        }
       }
     },
     created(){

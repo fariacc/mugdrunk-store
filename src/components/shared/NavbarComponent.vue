@@ -59,9 +59,6 @@
         if (usuarioAux){
           this.usuario = JSON.parse(usuarioAux) //this.usuario recebendo as infos de usuario em forma de objeto
         }
-        // else{
-        //   this.$router.push('/login')
-        // }
       },
       logout(){
         sessionStorage.clear()

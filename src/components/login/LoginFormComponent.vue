@@ -52,8 +52,6 @@
           this.message = 'Preencha todos os campos corretamente'
           this.icone = 'text-danger far fa-lg fa-times-circle'
         }
-        // event.preventDefault()
-        // alert('oi')
       }
     }
   }
