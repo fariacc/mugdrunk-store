@@ -28,6 +28,9 @@
             }
             sessionStorage.setItem('usuario', JSON.stringify(profile))
           })
+          if (this.$route.path == '/register'){
+            this.$router.push('/')
+          }
         }
       },
       onSignInError (error) {
