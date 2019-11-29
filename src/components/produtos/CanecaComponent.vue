@@ -8,7 +8,7 @@
         <img :src="caneca.src" :alt="caneca.alt">
         <p class="caneca-nome">{{ caneca.nome }}</p>
         <p class="caneca-preco">Preço: R$ {{ caneca.preco }}</p>
-        <button type="button" name="button" class="btn btn-primary m-2" @click="addCarrinho(caneca, key)">
+        <button type="button" name="button" class="btn btn-default m-2" @click="addCarrinho(caneca, key)">
           Comprar
         </button>
       </div>

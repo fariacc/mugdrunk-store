@@ -13,6 +13,25 @@
 </script>
 
 <style lang="scss">
+  .form-row{
+    .reset{
+      a{
+        font-size: 0.9rem;
+        color: #41698E;
+        &:hover{
+          color: #213345;
+          text-decoration: none;
+        }
+      }
+    }
+    .link{
+      color: #41698E;
+      &:hover{
+        color: #213345!important;
+        text-decoration: none!important;
+      }
+    }
+  }
   label{
     text-align: left;
     color: #213345;

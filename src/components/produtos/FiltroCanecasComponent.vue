@@ -9,7 +9,7 @@
           :min="min" :max="max" hide-details></v-range-slider>
         </v-col>
       </v-app>
-      <button type="button" name="button" class="btn btn-primary" @click="$emit('update:range', range)">
+      <button type="button" name="button" class="btn btn-default" @click="$emit('update:range', range)">
         <i class="fas fa-funnel-dollar" aria-hidden="true"></i>
         <span> Filtrar</span>
       </button>

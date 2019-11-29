@@ -10,10 +10,10 @@
           <hr>
           <p class="text-left" v-if="total != null"><strong>Preço final: </strong>R$ {{ total }}</p>
           <hr v-if="total != null">
-          <button class="btn btn-primary mx-2">
+          <button class="btn btn-default mx-2">
             <router-link :to="{ name: 'home-component', params: { items } }">Voltar ao início</router-link>
           </button>
-          <button class="btn btn-primary mx-2" v-if="subtotal != 0" @click="finalizarCompra">Finalizar compra</button>
+          <button class="btn btn-default mx-2" v-if="subtotal != 0" @click="finalizarCompra">Finalizar compra</button>
         </div>
       </div>
     </div>

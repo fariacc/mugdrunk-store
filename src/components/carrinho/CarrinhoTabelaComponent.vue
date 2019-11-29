@@ -14,7 +14,7 @@
     <div class="form-inline mb-1" v-if="subtotal != 0">
       <strong>Cupom de desconto: </strong>
       <input-component classeinput="form-control ml-2" tipoinput="text" v-model="cupom"></input-component>
-      <button type="button" name="cupom" class="btn btn-primary ml-2" @click="adicionarCupom(cupom)">Adicionar</button>
+      <button type="button" name="cupom" class="btn btn-default ml-2" @click="adicionarCupom(cupom)">Adicionar</button>
     </div>
     <hr/>
     <p class="text-center" v-if="subtotalComDesconto != null"><strong>Subtotal: </strong> R$ {{ subtotalComDesconto }}</p>

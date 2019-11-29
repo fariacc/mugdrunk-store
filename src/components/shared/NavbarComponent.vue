@@ -24,7 +24,7 @@
               </li>
             </ul>
             <router-link class="nav-link" :to="{ name: 'carrinho-component', params: { items: this.items } }">
-              <button type="button" name="button" class="btn btn-primary" @click="verCarrinho = false">
+              <button type="button" name="button" class="btn btn-default" @click="verCarrinho = false">
                 Ir para o carrinho
               </button>
             </router-link>

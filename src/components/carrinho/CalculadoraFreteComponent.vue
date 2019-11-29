@@ -3,7 +3,7 @@
     <div class="form-inline px-0">
       <strong>Insira o seu CEP: </strong>
       <input-component classeinput="form-control ml-2" tipoinput="text" v-model="frete.cepDestino"></input-component>
-      <button type="button" name="cepDestino" @click="calcularFrete('80230901', frete.cepDestino)" class="btn btn-primary ml-2">
+      <button type="button" name="cepDestino" @click="calcularFrete('80230901', frete.cepDestino)" class="btn btn-default ml-2">
         Calcular frete
       </button>
     </div>
