@@ -2,7 +2,7 @@
 
 Online shop for mugs. Developed intirely using VueJS. For this project I also used HTML, CSS (Bootstrap and SASS preprocessor) and Vuetify.
 
-[Check the application running](http://mugdrunk-store.herokuapp.com/)
+[Check the application running](https://mugdrunk-store.now.sh/)
 
 ## Project setup
 
